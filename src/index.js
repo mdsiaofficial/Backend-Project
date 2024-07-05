@@ -33,5 +33,13 @@ const app = express();
 // })()
 
 // Approach 2: coded in another file and imported
-connectDB();
+connectDB()
+  .then(() => {
+    app.listen(process.env.PORT || 8000, () => { 
+      console.log(`Server is running on Port: ${process.env.PORT}`)
+    })
+  })
+  .catch((err) => {
+    console.log("MONGODB connection failed.", err);
+})
 
