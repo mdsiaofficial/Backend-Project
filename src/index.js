@@ -1,14 +1,14 @@
 // require('dotenv').config({ path: './env' })
 // import 'dotenv/config'
 import dotenv from "dotenv";
+import connectDB from "./db/db.js";
+import express from "express";
+const app = express();
+
+
 dotenv.config({
   path: './env',
 })
-
-
-import connectDB from "./db/db.js";
-import express from 'express';
-const app = express();
 
 
 // Approach 1: write it in the same file
@@ -35,11 +35,11 @@ const app = express();
 // Approach 2: coded in another file and imported
 connectDB()
   .then( () => {
-    app.listen(process.env.PORT || 8000, () => { 
-      console.log(`Server is running on Port: ${process.env.PORT}`)
+    app.listen(process.env.PORT, () => { 
+      console.log(`Server is running on Port: http://localhost:${process.env.PORT}`)
     })
   })
-  .catch((err) => {
-    console.log("MONGODB connection failed.", err);
+  .catch((error) => {
+    console.error("MONGODB connection failed.", error);
 })
 

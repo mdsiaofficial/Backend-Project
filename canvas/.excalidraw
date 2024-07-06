@@ -1,0 +1,234 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "https://marketplace.visualstudio.com/items?itemName=pomdtr.excalidraw-editor",
+  "elements": [
+    {
+      "type": "freedraw",
+      "version": 34,
+      "versionNonce": 1936704757,
+      "isDeleted": false,
+      "id": "r9iLMBmRiRkH8UMvMrHFO",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "angle": 0,
+      "x": 584,
+      "y": 290,
+      "strokeColor": "#1e1e1e",
+      "backgroundColor": "transparent",
+      "width": 96,
+      "height": 123,
+      "seed": 512580667,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": null,
+      "boundElements": [],
+      "updated": 1720242032709,
+      "link": null,
+      "locked": false,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          -1,
+          0
+        ],
+        [
+          -5,
+          3
+        ],
+        [
+          -18,
+          19
+        ],
+        [
+          -31,
+          33
+        ],
+        [
+          -38,
+          40
+        ],
+        [
+          -53,
+          54
+        ],
+        [
+          -60,
+          62
+        ],
+        [
+          -61,
+          63
+        ],
+        [
+          -61,
+          64
+        ],
+        [
+          -57,
+          67
+        ],
+        [
+          -49,
+          67
+        ],
+        [
+          -22,
+          67
+        ],
+        [
+          4,
+          63
+        ],
+        [
+          14,
+          61
+        ],
+        [
+          23,
+          60
+        ],
+        [
+          19,
+          56
+        ],
+        [
+          17,
+          55
+        ],
+        [
+          13,
+          52
+        ],
+        [
+          12,
+          49
+        ],
+        [
+          11,
+          48
+        ],
+        [
+          11,
+          45
+        ],
+        [
+          10,
+          43
+        ],
+        [
+          10,
+          48
+        ],
+        [
+          15,
+          73
+        ],
+        [
+          18,
+          83
+        ],
+        [
+          22,
+          100
+        ],
+        [
+          27,
+          111
+        ],
+        [
+          28,
+          114
+        ],
+        [
+          32,
+          120
+        ],
+        [
+          34,
+          123
+        ],
+        [
+          35,
+          123
+        ],
+        [
+          35,
+          123
+        ]
+      ],
+      "lastCommittedPoint": null,
+      "simulatePressure": true,
+      "pressures": []
+    },
+    {
+      "type": "frame",
+      "version": 50,
+      "versionNonce": 623392955,
+      "isDeleted": false,
+      "id": "Cx9soFLb8cxjUiouITV53",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "angle": 0,
+      "x": 496,
+      "y": 226,
+      "strokeColor": "#bbb",
+      "backgroundColor": "transparent",
+      "width": 197,
+      "height": 281,
+      "seed": 1070996859,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": null,
+      "boundElements": [],
+      "updated": 1720242043341,
+      "link": null,
+      "locked": false,
+      "name": null
+    },
+    {
+      "type": "embeddable",
+      "version": 19,
+      "versionNonce": 1646833910,
+      "isDeleted": false,
+      "id": "wHhokobSu1nqtO362YYAd",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "angle": 0,
+      "x": 867,
+      "y": 210,
+      "strokeColor": "#1e1e1e",
+      "backgroundColor": "transparent",
+      "width": 253,
+      "height": 116,
+      "seed": 1104326101,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": 3
+      },
+      "boundElements": [],
+      "updated": 1720243001689,
+      "link": null,
+      "locked": false,
+      "validated": false
+    }
+  ],
+  "appState": {
+    "gridSize": null,
+    "viewBackgroundColor": "#ffffff"
+  },
+  "files": {}
+}
