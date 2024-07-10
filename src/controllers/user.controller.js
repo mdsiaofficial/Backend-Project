@@ -74,7 +74,7 @@ const registerUser = asyncHandler(async (req, res) => {
 
   let coverImageLocalPath;
   if (req.files && Array.isArray(req.files.coverImage) && req.files.coverImage.length > 0) {
-    coverImageLocalPath = req.files.coverImageLocalPath[0].path;
+    coverImageLocalPath = req.files.coverImage[0].path;
   }
 
   const avatar = await uploadOnCloudinary(avatarLocalPath);
@@ -108,12 +108,11 @@ const registerUser = asyncHandler(async (req, res) => {
   );
 });
 
-
 const loginUser = asyncHandler(async (req, res) => {
   console.log(req);
-  res.status(200).json({
-    message: "OK!",
-  })
+  // res.status(200).json({
+  //   message: "OK!",
+  // })
 
   // fetch user data from frontend
   // validate data: not empty, valid email, valid password
@@ -127,11 +126,11 @@ const loginUser = asyncHandler(async (req, res) => {
   const { username, email, password } = req.body;
   console.log(email, " + ", password);
 
-  if (!email) {
-    throw new ApiError(400, "Email is required to login.")
+  if (!email && !username) {
+    throw new ApiError(400, "Email/Username is required to login.")
   }
 
-  const user = User.findOne({
+  const user = await User.findOne({
     $or: [{ email }, { username }]
   });
 
@@ -140,7 +139,7 @@ const loginUser = asyncHandler(async (req, res) => {
   }
   console.log(user);
 
-  const isPasswordValid = await user.isPasswordCorrect(password)
+  const isPasswordValid = await user.isPasswordCorrect(password);
 
   if (!isPasswordValid) {
     throw new ApiError(401, "Password incorrect!!!");
@@ -155,7 +154,8 @@ const loginUser = asyncHandler(async (req, res) => {
     httpOnly: true,
     secure: true,
   }
-
+  console.log(accessToken);
+  console.log(refreshToken);
   return res
     .status(200)
     .cookie("accessToken", accessToken, options)
@@ -172,14 +172,15 @@ const loginUser = asyncHandler(async (req, res) => {
 
 })
 
-const logoutUser = asyncHandler(async (req, res) => { 
+
+const logoutUser = asyncHandler(async (req, res) => {
   // remove refresh token from db
   // remove refresh token from cookies
   // return res
-  User.findByIdAndUpdate(
+  await User.findByIdAndUpdate(
     req.user._id,
     {
-      $set: { refreshToken: undefined },
+      $unset: { refreshToken: 1 },
     },
     {
       new: true,
@@ -194,13 +195,13 @@ const logoutUser = asyncHandler(async (req, res) => {
 
   return res
     .status(200)
-    .clearCookies("accessToken", options)
-    .clearCookies("refreshToken", options)
+    .clearCookie("accessToken", options)
+    .clearCookie("refreshToken", options)
     .json(new ApiResponse(
       200,
       {},
       "User logged out successfully",
     ));
-})
+});
 
 export { registerUser, loginUser, logoutUser };

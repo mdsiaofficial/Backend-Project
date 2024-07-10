@@ -1,17 +1,21 @@
-import { jwt } from "jsonwebtoken";
-import { ApiError } from "../utils/ApiError";
-import { asyncHandler } from "../utils/asyncHandler";
-import { User } from "../models/user.models";
+import jwt from "jsonwebtoken";
+import { ApiError } from "../utils/ApiError.js";
+import { asyncHandler } from "../utils/asyncHandler.js";
+import { User } from "../models/user.models.js";
 
 
 export const verifyJWT = asyncHandler(async (req, res, next) => {
+  // res.status(200).jsoon({
+  //   message: "ok",
+  // })
   try {
     
     // verify JWT token
     // add user to req.user
     // next()
-  
-    const token = req.cookies?.accessToken || req.header("Authorization")?.replace("Bearer", "");
+    console.log(req.cookies);
+    const token = req.cookies?.accessToken || req.header.authorization?.replace("Bearer", "");
+    console.log(token)
   
     if (!token) {
       throw new ApiError(401, "Unauthorized request!");
@@ -29,7 +33,7 @@ export const verifyJWT = asyncHandler(async (req, res, next) => {
     next();
   
   } catch (error) {
-    throw new ApiError(401, error?.message || "Invalid Access Token");
+    throw new ApiError(401, error.message || "Invalid Access Token", error);
   }
 
 })
